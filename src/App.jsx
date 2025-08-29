@@ -12,7 +12,7 @@ function App() {
         const savedScore = localStorage.getItem("scoreKey");
         try {
             return savedScore ? JSON.parse(savedScore) : 0;
-        } catch (error) {
+        } catch {
             console.error("Invalid score in localStorage:", savedScore);
             return 0;
         }
