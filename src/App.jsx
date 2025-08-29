@@ -1,39 +1,25 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Card from "./components/Card";
 import Score from "./components/Score";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
-            <div>
-                <a href="https://vite.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
+            <header>
+                <img src={reactLogo} alt="React logo" />
+                <Score />
+            </header>
+            <main>
+                <p>Card Section</p>
+            </main>
+            <footer>
                 <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
+                    Pokémon Memory Game &copy; {new Date().getFullYear()}{" "}
+                    &mdash; Built with React. All Pokémon images &amp; names
+                    &copy; Nintendo, Game Freak, and The Pokémon Company.
                 </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
+            </footer>
         </>
     );
 }
