@@ -35,9 +35,21 @@ export default function Score({
     }, [selectedCards]);
 
     return (
-        <section className="score-section font-bitcount text-[1.5rem] text-white">
-            <h1>Score: {score}</h1>
-            <h1>High Score: {highScore}</h1>
+        <section className="scoreboard">
+            <div className="scoreboard-title">
+                <h1>Pokémon Memory</h1>
+                <p className="scoreboard-subtitle">
+                    Don't click the same Pokémon twice.
+                </p>
+            </div>
+            <div className="scoreboard-stats">
+                <div className="score">
+                    Score: <span>{score}</span>
+                </div>
+                <div className="high-score">
+                    High Score: <span>{highScore}</span>
+                </div>
+            </div>
         </section>
     );
 }

@@ -5,17 +5,130 @@
     text-align: center;
 }
 
-header {
-    display: flex;
-    border: 2px solid blue;
+/* App layout */
+.app-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* Subtract #root vertical padding (2rem top + 2rem bottom) to avoid overflow */
+    min-height: calc(100vh - 4rem);
+    min-height: calc(100dvh - 4rem);
+    gap: 2rem;
 }
 
-main {
+.app-header {
     display: flex;
-    border: 2px solid green;
+    align-items: center;
+    justify-content: center;
 }
 
-footer {
-    display: flex;
-    border: 2px solid red;
+.app-main {
+    display: grid;
+    align-items: start;
+}
+
+.app-footer {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.scoreboard-title h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.scoreboard-subtitle {
+    margin: 0.25rem 0 0 0;
+    opacity: 0.8;
+}
+
+.scoreboard-stats {
+    display: inline-grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreboard-stats .score,
+.scoreboard-stats .high-score {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+}
+
+.scoreboard-stats span {
+    font-weight: 700;
+}
+
+/* Cards grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 480px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+/* Card */
+.card {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 160ms ease, box-shadow 160ms ease,
+        border-color 160ms ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(100, 108, 255, 0.6);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.card-media {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 80%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.card-title {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }

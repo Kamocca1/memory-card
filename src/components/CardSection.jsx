@@ -1,6 +1,5 @@
-import Card from "./Card";
-
 import { useEffect } from "react";
+import Card from "./Card";
 
 export default function CardsSection({
     pokemonList,
@@ -42,11 +41,12 @@ export default function CardsSection({
     }, []);
 
     return (
-        <section className="card-section">
+        <section className="cards-grid">
             {pokemonList &&
                 pokemonList.map((_sprites, index) => {
                     return (
                         <Card
+                            key={_sprites.id}
                             _sprites={_sprites}
                             index={index}
                             clickHandler={clickHandler}

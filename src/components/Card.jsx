@@ -3,13 +3,19 @@ export default function Card({ _sprites, index, clickHandler, reloadCards }) {
         <button
             type="button"
             key={index}
-            className=""
+            className="card"
             onClick={() => {
                 clickHandler(_sprites.id);
                 reloadCards();
             }}>
-            <img src={_sprites.sprites} alt={_sprites.name} className="" />
-            <p className="">{_sprites.name}</p>
+            <div className="card-media">
+                <img
+                    src={_sprites.sprites}
+                    alt={_sprites.name}
+                    className="card-img"
+                />
+            </div>
+            <p className="card-title">{_sprites.name}</p>
         </button>
     );
 }

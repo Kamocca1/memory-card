@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Score from "./components/Score";
 import CardsSection from "./components/CardSection";
 
-function App() {
+export default function App() {
     const [pokemonList, setPokemonList] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
 
@@ -71,9 +70,8 @@ function App() {
     }, []);
 
     return (
-        <>
-            <header>
-                <img src={reactLogo} alt="React logo" />
+        <div className="app-container">
+            <header className="app-header">
                 <Score
                     setSelectedCards={setSelectedCards}
                     selectedCards={selectedCards}
@@ -82,7 +80,7 @@ function App() {
                     pokemonList={pokemonList}
                 />
             </header>
-            <main className="flex justify-center">
+            <main className="app-main">
                 <CardsSection
                     pokemonList={pokemonList}
                     setPokemonList={setPokemonList}
@@ -90,15 +88,13 @@ function App() {
                     setScore={setScore}
                 />
             </main>
-            <footer>
+            <footer className="app-footer">
                 <p>
                     Pokémon Memory Game &copy; {new Date().getFullYear()}{" "}
                     &mdash; Built with React. All Pokémon images &amp; names
                     &copy; Nintendo, Game Freak, and The Pokémon Company.
                 </p>
             </footer>
-        </>
+        </div>
     );
 }
-
-export default App;
